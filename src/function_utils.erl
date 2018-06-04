@@ -57,14 +57,14 @@ apply({F, A}) when is_function(F) ->
 apply(F) when is_function(F) ->
     erlang:apply(F, []).
 
--spec when_exported(M :: module(), F :: atom(), A :: list(), Otherwise :: provider()) -> any().
+-spec when_exported(M :: module(), F :: atom(), A :: list(), Otherwise :: callback()) -> any().
 when_exported(M, F, A, Otherwise) ->
     when_exported_do(M, F, A, fun(R) -> R end, Otherwise).
 
 %% =============================================================================
 %% Local functions
 %% =============================================================================
--spec when_exported_do(M :: module(), F :: atom(), A :: list(), Do :: consumer(), Otherwise :: provider()) -> any().
+-spec when_exported_do(M :: module(), F :: atom(), A :: list(), Do :: consumer(), Otherwise :: callback()) -> any().
 when_exported_do(M, F, A, Do, Otherwise) ->
     case erlang:function_exported(M, F, length(A)) of
         false ->
