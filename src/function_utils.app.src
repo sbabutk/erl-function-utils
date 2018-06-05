@@ -1,6 +1,6 @@
 {application,function_utils,
              [{description,"Function utilities"},
-              {vsn,"1.0.2"},
+              {vsn,"1.0.3"},
               {licenses,["MIT"]},
               {links,[{"GitHub",
                        "https://github.com/relayr/erl-function-utils"}]},
