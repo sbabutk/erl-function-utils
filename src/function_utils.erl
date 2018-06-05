@@ -30,9 +30,9 @@
 
 -type callback() :: callback(any()).
 -type callback(T) ::
-    mfa()
-    | {fun(), Args :: list()}
-    | provider(T).
+    {module(), atom(), Args :: list()} |
+    {fun(), Args :: list()} |
+    provider(T).
 
 -export_type([
     provider/1,
