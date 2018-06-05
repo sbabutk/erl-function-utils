@@ -21,8 +21,8 @@
 %%------------------------------------------------------------------------------
 %% Types
 %%------------------------------------------------------------------------------
--type provider(T) :: fun(() -> T).
--type provider() :: provider(any()).
+-type f0(T) :: fun(() -> T).
+-type f0() :: f0(any()).
 
 -type consumer(In, Out) :: fun((In) -> Out).
 -type consumer(In) :: consumer(In, any()).
@@ -32,11 +32,11 @@
 -type callback(T) ::
     {module(), atom(), Args :: list()} |
     {fun(), Args :: list()} |
-    provider(T).
+    f0(T).
 
 -export_type([
-    provider/1,
-    provider/0,
+    f0/1,
+    f0/0,
 
     consumer/2,
     consumer/1,
